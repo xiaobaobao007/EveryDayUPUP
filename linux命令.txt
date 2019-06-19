@@ -1,0 +1,33 @@
+/data/fe/main 常用文件夹
+ll 显示所有文件
+mysql -uroot -proot 登录mysql
+cd data/ 进入当前文件夹下的文件
+cd /data 进入绝对路径
+cd ../ 返回上一层文件夹
+mysql -u root -p fe_123 < fe_game.sql 在外边加载sql文件
+souce 在里边边加载sql文件
+vim 查看 
+i 编辑 
+Esc 退出编辑
+ctrl+c 退出当前命令
+: 查看状态下q退出 wq保存退出
+pwd 当前文件夹的绝对路径
+./ 执行文件
+tail -f stout.log 若stout.log文件发生改变输出
+touch 新建文件
+mkdir 创建文件夹
+cp -rf 复制全部文件
+rz 上传文件
+chattr +-i db.conf 加减操作
+mv 改名字
+
+140.143.156.102
+
+
+/data/fe/build/autoDelploy.sh服务器重启
+/data/fe/main/gameServer_4/stout.log查看服务器运行是否有错误信息
+
+
+server dabao.sh
+center pullPackage.sh
+center deployCenter.sh

@@ -1,3 +1,57 @@
+GameLogFactory.getGameLog().error("general level model is null,level {}", general.getLevel());
+
+select a.skyDragonTimes from player a inner join skydragon b on a.userId=b.userId where a.account="mr1";
+
+INSERT into backpack (userId,itemId,num,gainTime,useTimes,lastUseTime)VALUES(4011472,20014,999999,1554345928,0,0);
+20014传奇英雄宝箱
+20134天赋丹
+20139超级经验药水
+20149阵法石箱
+20155星耀石
+22222GM测试套装
+22223体验尊享礼包
+22224VIP经验
+
+
+CREATE TABLE `playerprop` (
+  `userId` int(11) NOT NULL,
+  `helpCoins` int(11) DEFAULT NULL,
+  `beHelpCoins` int(11) DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE playerprop 创建表单
+(
+userid int PRIMARY KEY,
+help int,
+behelp int
+)
+
+SHOW CREATE DATABASE/TABLES 查看建库或者建表语句
+
+insert playerprop(userid,help,behelp) values (1,1,1); 插入数据
+
+alter table 原表名 rename to 新表名
+
+alter table 表名 change 要修改的字段名  新字段名 新字段的数据类型
+
+alter table playerprop character set utf8mb4 COLLATE utf8mb4_general_ci; 修改表的编码格式
+
+show columns from 查看所有表头信息
+
+select distinct name数据去重
+
+SELECT COUNT(*) FROM table_name 数据数量
+
+truncate table wp_comments;
+delete * from wp_comments;
+drop table table_name;
+
+offset：偏移量，和limit一起用做到分页的效果。select * from test1 limit 5 offset 1;
+union：俩表数据去重。union all输出所有。select * from test1 union select * from test2;
+group by：分组查询和去重查询（distinct）。可以跟（with rollup 总统计）
+====================================================================
+====================================================================
 关系型数据库的优势：
 
 1. 保持数据的一致性（事务处理）
