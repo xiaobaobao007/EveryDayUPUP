@@ -27,7 +27,9 @@ mv 改名字
 /data/fe/build/autoDelploy.sh服务器重启
 /data/fe/main/gameServer_4/stout.log查看服务器运行是否有错误信息
 
-
 server dabao.sh
 center pullPackage.sh
 center deployCenter.sh
+
+tar -zxvf GameServer.tar.gz//
+\cp -rf gameServer/* gameServer_102/
