@@ -1,0 +1,24 @@
+string
+set name "111"
+get name
+del name
+
+hash
+hset myhash name "123"
+hmset myhashname "123" age "456"
+hget myhash name
+del myhahh name
+
+list
+lpush a "1"
+lpush a "2"
+lrange a 0 10
+
+set
+sadd a "a"
+sadd a "b"
+smembers a
+
+zset
+zadd a 0 1
+zrangebyscore 0 1000
