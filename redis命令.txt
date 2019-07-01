@@ -5,7 +5,7 @@ del name
 
 hash
 hset myhash name "123"
-hmset myhashname "123" age "456"
+hmset myhash name "123" age "456"
 hget myhash name
 del myhahh name
 
