@@ -7,12 +7,13 @@ hash
 hset myhash name "123"
 hmset myhash name "123" age "456"
 hget myhash name
-del myhahh name
+hdel myhahh name
 
 list
-lpush a "1"
-lpush a "2"
+lpush a "1"尾部添加
+rpush a "2"头部添加
 lrange a 0 10
+del a
 
 set
 sadd a "a"
