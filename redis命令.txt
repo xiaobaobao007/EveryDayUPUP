@@ -1,25 +1,106 @@
 string
-set name "111"
+set name value
 get name
 del name
-
+incr value--------------------存在值加1，否则设置0
+decr value--------------------存在值减1，否则设置0
+incrby value num--------------------存在值加num，否则设置0+num
+decrby value num--------------------存在值减num，否则设置0-num
+append value num--------------------字符串往后加字符串
+================================================================================
 hash
-hset myhash name "123"
-hmset myhash name "123" age "456"
+hset myhash name value
+hmset myhash name value1 age value2
 hget myhash name
-hdel myhahh name
-
-list
-lpush a "1"尾部添加
-rpush a "2"头部添加
-lrange a 0 10
-del a
-
+hdel myhash name
+del myhash
+hincrby myhash name num--------------------增加数值
+hgetall myhash
+hlen myhash
+hkeys myhash
+================================================================================
+list(arraylist,linkedlist)
+lpush mylist value--------------------头部添加
+rpush mylist value--------------------尾部添加
+lrange mylist value1 value2--------------------索引的范围
+lpop mylist--------------------头部元素移出
+rpop mylist--------------------尾部元素移出
+llen mylist--------------------集合大小
+lpushx mylist value--------------------列表存在再插入
+del mylist 
+lrem mylist num value--------------------删除num个value ,num>0从前删除，<0从后删除，=0删除所有
+lset mylist index value--------------------向指定位置插入元素
+linsert mylist after value1 value2 在2后面插入1--------------------向指定元素后插入数据
+rpoplpush mylist1 mylist2--------------------1的尾部取出放入2的头部，适用于消息队列
+================================================================================
 set
-sadd a "a"
-sadd a "b"
-smembers a
-
+sadd myset value
+srem myset value
+smembers myset
+sismember value--------------------0不存在，1存在
+sdiff myset myset1--------------------求差集
+sinter myset myset1--------------------求交集
+sunion myset myset1--------------------求并集
+scard myset--------------------数量
+sdiffstore myset myset1 myset2--------------------求差集赋值给myset
+sinterstore myset myset1 myset2 求交集赋值给myset
+sunionstore myset myset1 myset2 求并集赋值给myset
+================================================================================
 zset
-zadd a 0 1
-zrangebyscore 0 1000
+zadd name key score 
+zscore name key
+zcard name--------------------数量
+zrem name key1 key2--------------------删除
+zrange name rank1 rank2 (withscores)(limit 0 10)--------------------index范围输出
+zrangebyscore name score1 score2--------------------分数范围
+zremrangebyrank name rank1 rank2--------------------排名范围
+zremrangebyscore name score1 score2--------------------分数排名
+zincrby name num key//此处先写分数再写键值
+================================================================================
+通用键的操作
+keys *
+keys my*
+keys my?
+exists key
+rename oldname newname
+expire key mm
+ttl key 所剩余过期时间（没有设置-1）
+type key
+================================================================================
+数据库操作
+默认的是0数据库
+select index选择第几个数据库
+move name index移动到第几个数据库
+multi--------------------开启事务
+exec--------------------提交
+discard--------------------回滚
+================================================================================
+持久化操作
+1、RDB
+在指定的时间内把内存数据写入硬盘
+优点：大数据的读取
+缺点：宕机时会让数据丢失
+2、AOF
+每个操作写入日志
+优点：安全
+缺点：效率低
+3、同时使用RDB和AOF
+4、无持久化内存缓存机制
+================================================================================
+NoSql=not only sql:非关系型数据库
+
+SNS网站：社交网站服务
+
+非关系型数据库：
+mongoDB(文档数据库，查询性能低，没有统一查询语句) redis（键值对）
+高并发读写，海量数据的存储和访问，高可扩展性和高可用性，易扩展，灵活的数据模型
+
+缓存，任务队列，应用排行榜，网站访问统计，数据过期处理，分布式集群架构中的session分离
+
+key:不能太长也不能太短，要有统一的命名的规范，1024字节
+value：512M
+
+1、跟着视频学习，能避免眼高手低、边学习边操作（看书也行，但是我总觉得看没有听起来记忆深刻）。
+2、记笔记，每个知识点记下来。（列两个，一个回顾目录和知识点详细目录）。
+3、每天看一遍目录，不能立马或者犹豫的知识点，去另外的目录看一下。
+
