@@ -29,7 +29,7 @@ llen mylist--------------------集合大小
 lpushx mylist value--------------------列表存在再插入
 del mylist 
 lrem mylist num value--------------------删除num个value ,num>0从前删除，<0从后删除，=0删除所有
-lset mylist index value--------------------向指定位置插入元素
+lset mylist index value--------------------改变指定位置元素
 linsert mylist after value1 value2 在2后面插入1--------------------向指定元素后插入数据
 rpoplpush mylist1 mylist2--------------------1的尾部取出放入2的头部，适用于消息队列
 ================================================================================
@@ -37,7 +37,7 @@ set
 sadd myset value
 srem myset value
 smembers myset
-sismember value--------------------0不存在，1存在
+sismember name value--------------------0不存在，1存在
 sdiff myset myset1--------------------求差集
 sinter myset myset1--------------------求交集
 sunion myset myset1--------------------求并集
@@ -51,8 +51,8 @@ zadd name key score
 zscore name key
 zcard name--------------------数量
 zrem name key1 key2--------------------删除
-zrange name rank1 rank2 (withscores)(limit 0 10)--------------------index范围输出
-zrangebyscore name score1 score2--------------------分数范围
+zrange name rank1 rank2 (withscores)--------------------index范围输出
+zrangebyscore name score1 score2 (limit offset count)--------------------分数范围
 zremrangebyrank name rank1 rank2--------------------排名范围
 zremrangebyscore name score1 score2--------------------分数排名
 zincrby name num key//此处先写分数再写键值
@@ -84,8 +84,15 @@ discard--------------------回滚
 每个操作写入日志
 优点：安全
 缺点：效率低
+--------------------
+shutdown
+cd C:\Users\Administrator\Desktop\redis64-3.0.501
+redis-server.exe redis.windows.conf
+--------------------
 3、同时使用RDB和AOF
 4、无持久化内存缓存机制
+
+
 ================================================================================
 NoSql=not only sql:非关系型数据库
 
