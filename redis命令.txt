@@ -1,61 +1,62 @@
 string
-set name value
-get name
-del name
-incr value--------------------存在值加1，否则设置0
-decr value--------------------存在值减1，否则设置0
-incrby value num--------------------存在值加num，否则设置0+num
-decrby value num--------------------存在值减num，否则设置0-num
-append value num--------------------字符串往后加字符串
+set key value
+get key
+del key
+incr key--------------------存在值加1，否则设置0
+decr key--------------------存在值减1，否则设置0
+incrby key increment--------------------存在值加increment，否则设置0+increment
+decrby key increment--------------------存在值减increment，否则设置0-increment
+append key value--------------------字符串往后加字符串
+strlen key
 ================================================================================
 hash
-hset myhash name value
-hmset myhash name value1 age value2
-hget myhash name
-hdel myhash name
-del myhash
-hincrby myhash name num--------------------增加数值
-hgetall myhash
-hlen myhash
-hkeys myhash
+hset key field value
+hmset key field value1 age value2
+hget key field
+hdel key field
+del key
+hincrby key field value--------------------增加数值
+hgetall key
+hlen key
+hkeys key
 ================================================================================
 list(arraylist,linkedlist)
-lpush mylist value--------------------头部添加
-rpush mylist value--------------------尾部添加
-lrange mylist value1 value2--------------------索引的范围
-lpop mylist--------------------头部元素移出
-rpop mylist--------------------尾部元素移出
-llen mylist--------------------集合大小
-lpushx mylist value--------------------列表存在再插入
-del mylist 
-lrem mylist num value--------------------删除num个value ,num>0从前删除，<0从后删除，=0删除所有
-lset mylist index value--------------------改变指定位置元素
-linsert mylist after value1 value2 在2后面插入1--------------------向指定元素后插入数据
-rpoplpush mylist1 mylist2--------------------1的尾部取出放入2的头部，适用于消息队列
+lpush key value--------------------头部添加
+rpush key value--------------------尾部添加
+lrange key value1 value2--------------------索引的范围
+lpop key--------------------头部元素移出
+rpop key--------------------尾部元素移出
+llen key--------------------集合大小
+lpushx key value--------------------列表存在再插入
+del key
+lrem key count value--------------------删除num个value ,num>0从前删除，<0从后删除，=0删除所有
+lset key index value--------------------改变指定位置元素
+linsert key after value1 value2 在2后面插入1--------------------向指定元素后插入数据
+rpoplpush key1 key2--------------------1的尾部取出放入2的头部，适用于消息队列
 ================================================================================
 set
-sadd myset value
-srem myset value
-smembers myset
-sismember name value--------------------0不存在，1存在
-sdiff myset myset1--------------------求差集
-sinter myset myset1--------------------求交集
-sunion myset myset1--------------------求并集
-scard myset--------------------数量
-sdiffstore myset myset1 myset2--------------------求差集赋值给myset
-sinterstore myset myset1 myset2 求交集赋值给myset
-sunionstore myset myset1 myset2 求并集赋值给myset
+sadd key member
+srem key member
+smembers key
+sismember name member--------------------0不存在，1存在
+sdiff key key1--------------------求差集
+sinter key key1--------------------求交集
+sunion key key1--------------------求并集
+scard key--------------------数量
+sdiffstore key key1 key2--------------------求差集赋值给key
+sinterstore key key1 key2 求交集赋值给key
+sunionstore key key1 key2 求并集赋值给key
 ================================================================================
 zset
-zadd name key score 
-zscore name key
-zcard name--------------------数量
-zrem name key1 key2--------------------删除
-zrange name rank1 rank2 (withscores)--------------------index范围输出
-zrangebyscore name score1 score2 (limit offset count)--------------------分数范围
-zremrangebyrank name rank1 rank2--------------------排名范围
-zremrangebyscore name score1 score2--------------------分数排名
-zincrby name num key//此处先写分数再写键值
+zadd key score1 member1 score2 member2
+zscore key member
+zcard key--------------------数量
+zrem key member1 member2--------------------删除
+zrange key rank1 rank2 (withscores)--------------------index范围输出
+zrangebyscore key score1 score2 (limit offset count)--------------------分数范围
+zremrangebyrank key rank1 rank2--------------------排名范围
+zremrangebyscore key score1 score2--------------------分数排名
+zincrby key increment member//此处先写分数再写键值
 ================================================================================
 通用键的操作
 keys *
@@ -63,7 +64,7 @@ keys my*
 keys my?
 exists key
 rename oldname newname
-expire key mm
+expire key mm--------------------设置有效时间
 ttl key 所剩余过期时间（没有设置-1）
 type key
 ================================================================================
@@ -106,8 +107,3 @@ mongoDB(文档数据库，查询性能低，没有统一查询语句) redis（键值对）
 
 key:不能太长也不能太短，要有统一的命名的规范，1024字节
 value：512M
-
-1、跟着视频学习，能避免眼高手低、边学习边操作（看书也行，但是我总觉得看没有听起来记忆深刻）。
-2、记笔记，每个知识点记下来。（列两个，一个回顾目录和知识点详细目录）。
-3、每天看一遍目录，不能立马或者犹豫的知识点，去另外的目录看一下。
-
