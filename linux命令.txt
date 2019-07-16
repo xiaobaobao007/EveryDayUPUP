@@ -1,4 +1,4 @@
-mysql -u root -p fe_123 < fe_game.sql 在外边加载sql文件
+mysql -uroot -proot fe_game_7 < fe_game_7.sql 在外边加载sql文件
 souce 在里边边加载sql文件
 touch 新建文件
 mkdir 创建文件夹
@@ -6,6 +6,8 @@ cp -rf 复制全部文件
 rz 上传文件
 chattr +-i db.conf 加减操作
 mv 改名字
+
+mysqldump -uroot -proot -d fe_game_6> /data/fe_game_7.sql (-d只导出表结构)
 
 140.143.156.102
 62.234.0.140
@@ -16,3 +18,7 @@ center deployCenter.sh
 
 tar -zxvf GameServer.tar.gz//
 \cp -rf gameServer/* gameServer_102/
+
+打分支：
+./sheel ./dabao name
+scp root@10.163.1.114:/data/fe/shell/target_ranshao0709/package/GameServer.tar.gz  ./package
