@@ -8,6 +8,8 @@ incrby key increment--------------------存在值加increment，否则设置0+increment
 decrby key increment--------------------存在值减increment，否则设置0-increment
 append key value--------------------字符串往后加字符串
 strlen key
+setbit key offset value--------------------设置偏移量位的值0，1
+getbit key offset--------------------得到偏移量位的值
 ================================================================================
 hash
 hset key field value
