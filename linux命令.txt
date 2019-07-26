@@ -7,6 +7,8 @@ rz 上传文件
 chattr +-i db.conf 加减操作
 mv 改名字
 
+/usr/local/bin
+
 mysqldump -uroot -proot -d fe_game_6> /data/fe_game_7.sql (-d只导出表结构)
 
 140.143.156.102
