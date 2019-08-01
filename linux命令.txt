@@ -1,3 +1,4 @@
+yum install lrzsz 安装rz
 mysql -uroot -proot fe_game_7 < fe_game_7.sql 在外边加载sql文件
 souce 在里边边加载sql文件
 touch 新建文件

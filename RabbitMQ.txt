@@ -1,0 +1,45 @@
+http://www.rabbitmq.com/releases/erlang/erlang-19.0.4-1.el7.centos.x86_64.rpm
+http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el7.noarch.rpm
+
+安装：
+rpm -ivh erlang-19.0.4-1.el7.centos.x86_64.rpm
+
+yum install socat
+
+rpm -ivh rabbitmq-server-3.6.6-1.el7.noarch.rpm
+
+service rabbitmq-server stop #关闭
+
+service rabbitmq-server start #启动
+
+service rabbitmq-server status #状态
+
+chkconfig rabbitmq-server on #设置开机启动
+
+rabbitmq-plugins enable rabbitmq_management #安装web管理器
+
+
+
+rabbitmqctl add_user admin admin #创建账号
+
+
+
+rabbitmqctl  set_user_tags  admin  administrator
+
+
+ #设置用户角色
+
+
+
+rabbitmqctl set_permissions -p "/" admin ".*" ".*" ".*"
+
+ #设置用户权限 
+
+安装在服务器登录guest用户：
+cd /usr/share/doc/rabbitmq-server-3.6.10
+这里有一个rabbitmq.config.example文件。将其复制到 /etc/rabbitmq/
+cp rabbitmq.config.example /etc/rabbitmq/rabbitmq.config
+vi rabbitmq.config
+修改 [{rabbit, [{loopback_users, []}]}]. 注意把注释和后面的逗号去掉
+
+rabbitmqctl status
