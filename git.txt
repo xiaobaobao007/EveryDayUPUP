@@ -1,2 +1,3 @@
-git add .
-git commit -m “the commit message"
+git add .				添加版本控制
+git commit -m “the commit message"	提交
+git rm -r --cached ./*/.mvn/*          	取消版本控制

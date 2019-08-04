@@ -1,0 +1,13 @@
+com.jfinal.ext.config
+com.jfinal.ext.core
+com.jfinal.ext.ge
+com.jfinal.ext.handler
+com.jfinal.ext.interceptor
+com.jfinal.ext.kit
+com.jfinal.ext.plugin.activerecord
+com.jfinal.ext.plugin.activerecord.tx
+com.jfinal.ext.plugin.druid
+com.jfinal.ext.plugin.redis
+com.jfinal.ext.plugin.spring
+com.jfinal.ext.route
+com.jfinal.ext.validate
