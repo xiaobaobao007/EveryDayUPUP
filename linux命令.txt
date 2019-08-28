@@ -7,6 +7,7 @@ cp -rf 复制全部文件
 rz 上传文件
 chattr +-i db.conf 加减操作
 mv 改名字
+ntpdate  ntp1.aliyun.com 时间同步
 
 /usr/local/bin
 

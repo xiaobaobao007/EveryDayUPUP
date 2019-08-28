@@ -43,3 +43,7 @@ vi rabbitmq.config
 修改 [{rabbit, [{loopback_users, []}]}]. 注意把注释和后面的逗号去掉
 
 rabbitmqctl status
+
+
+
+
