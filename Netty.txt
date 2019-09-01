@@ -1,0 +1,12 @@
+IO模型：BIO/NIO/Netty
+
+BIO(Blocking IO):阻塞IO
+每一个连接都要新建一个线程进行处理。
+1：但是线程大多数处于休眠状态，浪费资源。
+2：占用大量内存。
+3：线程的切换带来大量的开销
+
+NIO(Non Blocking IO):非阻塞IO
+1：JDK的NIO使用很不友好。
+
+Netty：封装了JDK的NIO
