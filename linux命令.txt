@@ -20,9 +20,8 @@ server dabao.sh
 center pullPackage.sh
 center deployCenter.sh
 
-tar -zxvf GameServer.tar.gz//
-\cp -rf gameServer/* gameServer_102/
-
 ¥Ú∑÷÷ß£∫
-./sheel ./dabao name
-scp root@10.163.1.114:/data/fe/shell/target_ranshao0709/package/GameServer.tar.gz  ./package
+./dabao.sh lq_0907
+scp root@10.163.1.114:/data/fe/shell/target_lq_0907/package/GameServer.tar.gz  ./
+tar -zxvf GameServer.tar.gz
+\cp -rf gameServer/* gameServer_102/
