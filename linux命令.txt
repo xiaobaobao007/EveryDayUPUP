@@ -5,6 +5,7 @@ touch 新建文件
 mkdir 创建文件夹
 cp -rf 复制全部文件
 rz 上传文件
+sz 下载文件
 chattr +-i db.conf 加减操作
 mv 改名字
 ntpdate  ntp1.aliyun.com 时间同步
@@ -25,3 +26,10 @@ center deployCenter.sh
 scp root@10.163.1.114:/data/fe/shell/target_lq_0907/package/GameServer.tar.gz  ./
 tar -zxvf GameServer.tar.gz
 \cp -rf gameServer/* gameServer_102/
+
+
+cd /tmp/build/
+看build.sh文件内容路径（途径和名字）
+./build.sh
+cp server.tar.gz self_tool/self_tool_for_backend/update_files/backend/
+回到self_tool_for_backend执行main_mxw.py
