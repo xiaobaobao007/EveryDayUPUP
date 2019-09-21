@@ -23,6 +23,7 @@ center deployCenter.sh
 
 ¥Ú∑÷÷ß£∫
 ./dabao.sh lq_0907
+
 scp root@10.163.1.114:/data/fe/shell/target_lq_0907/package/GameServer.tar.gz  ./
 tar -zxvf GameServer.tar.gz
 \cp -rf gameServer/* gameServer_102/
