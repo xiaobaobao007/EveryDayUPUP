@@ -1,0 +1,39 @@
+sqlplus
+登录密码加 as sysdba
+show user
+conn account/password
+create user account identified by password;
+grant connect to user
+grant(revoke) operation(all,select,update) on database.table to user(with grant option(授权))
+with grant option:移出权限会株连,但是下属的下属自己无权管理.
+with admin option:移出权限不会株连.
+==================================
+增
+insert all
+into table_name values()
+into table_name values()
+select 1 from dual;
+insert into table_name values();
+==================================
+删
+==================================
+改
+==================================
+查
+desc table_name;
+select dbms_metadata.get_ddl('TABLE','CLASS') from dual;
+==================================
+set timing on/off
+==================================
+
+insert all
+into student values(3,'Asdf')
+into student values(4,'ga3d')
+into student values(5,'hgbd')
+into student values(6,'hts')
+into student values(7,'5rf')
+select 1 from dual;
+
+select dbms_metadata.get_ddl('TABLE','CLASS') from dual;
+
+
