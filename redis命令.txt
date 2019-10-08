@@ -53,12 +53,13 @@ zset
 zadd key score1 member1 score2 member2
 zscore key member
 zcard key--------------------数量
-zrem key member1 member2--------------------删除
 zrange key rank1 rank2 (withscores)--------------------index范围输出
 zrangebyscore key score1 score2 (limit offset count)--------------------分数范围
+zincrby key increment member//此处先写分数再写键值
+
+zrem key member1 member2--------------------删除
 zremrangebyrank key rank1 rank2--------------------排名范围
 zremrangebyscore key score1 score2--------------------分数排名
-zincrby key increment member//此处先写分数再写键值
 ================================================================================
 通用键的操作
 keys *

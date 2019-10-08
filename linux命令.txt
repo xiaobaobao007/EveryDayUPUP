@@ -1,5 +1,5 @@
 yum install lrzsz 安装rz
-mysql -uroot -proot fe_game_7 < fe_game_7.sql 在外边加载sql文件
+
 souce 在里边边加载sql文件
 touch 新建文件
 mkdir 创建文件夹
@@ -12,7 +12,8 @@ ntpdate  ntp1.aliyun.com 时间同步
 
 /usr/local/bin
 
-mysqldump -uroot -proot -d fe_game_6> /data/fe_game_7.sql (-d只导出表结构)
+mysql -uroot -proot fe_game_7 < fe_game_7.sql 导入sql文件
+mysqldump -uroot -proot -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
 
 140.143.156.102
 62.234.0.140

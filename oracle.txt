@@ -1,3 +1,23 @@
+char		CHAR 		固定长度字符串 			最大长度2000 bytes
+varchar2 	VARCHAR2 	可变长度的字符串 		最大长度4000 bytes 可做索引的最大长度749
+nchar		NCHAR 		根据字符集而定的固定长度字符串 	最大长度2000 bytes
+nvarchar2	NVARCHAR2 	根据字符集而定的可变长度字符串 	最大长度4000 bytes
+date		DATE 		日期（日-月-年） DD-MM-YY（HH-MI-SS） 经过严格测试，无千虫问题
+long		LONG 		超长字符串 			最大长度2G（231-1） 足够存储大部头著作
+raw		RAW 		固定长度的二进制数据 		最大长度2000 bytes 可存放多媒体图象声音等
+long raw	LONG RAW 	可变长度的二进制数据 		最大长度2G 同上
+blob		BLOB 		二进制数据 			最大长度4G
+clob		CLOB 		字符数据 			最大长度4G
+nclob		NCLOB 		根据字符集而定的字符数据 	最大长度4G
+bfile		BFILE 		存放在数据库外的二进制数据 	最大长度4G
+rowid		ROWID 		数据表中记录的唯一行号 		10 bytes ********.****.****格式，*为0或1
+nrowid		NROWID 		二进制数据表中记录的唯一行号 	最大长度4000 bytes
+number		NUMBER(P,S) 	数字类型 P为总位数，S为小数位数
+decimal		DECIMAL(P,S) 	数字类型 P为总位数，S为小数位数
+integer		INTEGER 	整数类型 小的整数
+float		FLOAT 		浮点数类型 NUMBER(38)，双精度
+real		REAL 		实数类型 NUMBER(63)，精度更高
+
 sqlplus
 登录密码加 as sysdba
 show user
@@ -14,6 +34,7 @@ into table_name values()
 into table_name values()
 select 1 from dual;
 insert into table_name values();
+insert into table1_name (column_name...) select a.column_name... from table2_name a;
 ==================================
 删
 ==================================
@@ -21,17 +42,33 @@ insert into table_name values();
 ==================================
 查
 desc table_name;
-select dbms_metadata.get_ddl('TABLE','CLASS') from dual;
+select dbms_metadata.get_ddl('TABLE',table_name) from dual;
+select distinct column_name from table_name;
+nvl(string1, replace_with):处理空值
+||连接字符串
+like结合%,_进行模糊查询
+order by 默认asc递增
+guorp by having替换where
+where column_name > all(any) (子查询)
+where (column_name1,column_name2) = (子查询)
+union 剔除重复交集
+union all 不剔除重复交集,不排序
+intersect 交集
+minus 差集
 ==================================
-set timing on/off
+set timing on/off(是否展示操作时间)
 ==================================
 
 insert all
-into student values(3,'Asdf')
-into student values(4,'ga3d')
-into student values(5,'hgbd')
-into student values(6,'hts')
-into student values(7,'5rf')
+into supplier values(1,'供应商1','略略1')
+into supplier values(2,'供应商2','略略2')
+into supplier values(3,'供应商3','略略3')
+select 1 from dual;
+
+insert all
+into products values(101,1)
+into products values(102,1)
+into products values(103,1)
 select 1 from dual;
 
 select dbms_metadata.get_ddl('TABLE','CLASS') from dual;
