@@ -1,0 +1,68 @@
+﻿=MID(OFFSET(N9,ROW(N9)-9,0,1,1),1,FIND("(",OFFSET(N9,ROW(N9)-9,0,1,1))-1)
+=MID(OFFSET(N8,ROW(N8)-8,0,1,1),5,LEN(OFFSET(N8,ROW(N8)-8,0,1,1))-7)
+
+
+select account from player where createTime>1573228800
+select account from player where createTime between 1574524800 and 1575043200
+select account from player where userId in (select userId from task where taskId=42073 and status=0);
+update activityconfig set beginTime=1574524800,endTime=1575043200;
+
+select a.userId,a.continuityDays,b.taskId,b.status from activitynationalday a inner join  timelimittask b  on a.userId=b.userId;
+
+primary 主键索引:只能有一个,不允许空
+unique 唯一索引:索引值必须唯一,允许空
+index 普通索引:没有限制
+fulltext 全文索引:不能被修改
+
+update player set account=left(account,8)+userId%100 where length(account)>=10;
+update player set account=userId%100;
+==============
+./redis-cli keys "Slave*" | xargs ./redis-cli del
+truncate slavefight;
+delete from gamelog where type=15; 
+XCK64F24J65BULXUD8XZDQ6RU
+select Num,
+case
+when @prve=Num then @count=@count+1
+when (@prve:=Num) is not null then @count:=1 
+end as Times from Logs,(select @prve:=null,@count:=null) as a;
+
+yteToMessageDecoder.channelRead(ByteToMessageDecoder.java:265) [netty-all-4.0.32.Final.jar:4.0.32.Final]
+        at io.netty.channel.Abstrac
+
+select *from charge where userId=1380016594  and status =2 and createTime>1574006400 and createTime<1574611140
+极/古拉得之剑//33115
+古拉得之剑//31115
+
+
+1:负责公司管理后台linux系统，服务器后台开发，mysql，redis数据库的管理。
+2:参与游戏的设计和需求分析等工作
+3:完成游戏各个模块的逻辑设计。
+4:项目SVN提交管理。
+
+买一赠一活动:
+t_s_reward.xlsx,掉落
+t_godsActivity.xlsx,增加了567的类型,分别是商品信息,掉落库id,额外奖励领取
+九宫格活动:
+t_nineGift.xlsx,选择信息和抽中权重
+t_flipCardTask.xlsx,任务
+t_item.xlsx, 20304-星芒之羽, 20305-抓娃娃券,20306-九宫格抽奖劵
+t_charge.xlsx,充值项配置(注意type2)
+挂机活跃活动:
+t_config.xlsx,时间段
+
+alias别名设置
+命令行cp发现:alias cp='cp -i',即cp提示覆盖提示
+但是在非交互式模式(shell脚本)下alias扩展功能默认是关闭的
+shopt -s opt_name                 使shell下alias生效
+shopt -u opt_name                 使shell下alias失效
+shopt opt_name                    输出shell下alias状态
+
+select count(*),chargeId from charge where createTime between 1574611200 and 1575043200 and chargeId between 91105 and 91110 group by chargeId
+
+帮忙取下4150服
+logs/gameServer-2019-11-26-00-1.log
+logs/gameServer-2019-11-27-00-1.log
+logs/gameServer-2019-11-28-00-1.log
+logs/gameServer-2019-11-29-00-1.log
+logs/gameServer-2019-11-30-00-1.log

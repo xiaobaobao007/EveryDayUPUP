@@ -13,8 +13,10 @@ tar -zxvf 解压
 tar -zcvf 压缩
 /usr/local/bin
 
-mysql -uroot -proot fe_game_7 < fe_game_7.sql 导入sql文件
+mysql -uroot -proot fe_game_101 < fe_game.sql 导入sql文件
 mysqldump -uroot -proot -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
+
+mysql -uroot -p fe_game_101 < fe_game.sql
 
 140.143.156.102
 62.234.0.140
@@ -25,11 +27,11 @@ center deployCenter.sh
 
 打分支：
 ./dabao.sh lq_0907
-
-scp root@10.163.1.114:/data/fe/shell/target_lq_20191115/package/GameServer.tar.gz  ./
+============
+scp root@10.163.1.114:/data/fe/shell/target_en_20190923/package/GameServer.tar.gz  ./
 tar -zxvf GameServer.tar.gz
-\cp -rf gameServer/* gameServer_102/
-
+\cp -rf gameServer/* gameServer_101/
+=====================
 
 cd /tmp/build/
 看build.sh文件内容路径（途径和名字）
@@ -38,3 +40,21 @@ cp server.tar.gz self_tool/self_tool_for_backend/update_files/backend/
 回到self_tool_for_backend执行main_mxw.py
 
 
+scp root@211.159.153.194:/data/fe/main/GameServer.tar.gz  ./
+
+grant all PRIVILEGES on fe_game_102.* to root@'10.163.34.54'  identified by 'root';
+
+
+=================
+cp /data/fe/shell/target_qq_20191130/package/GameServer.tar.gz  ./
+y
+tar -zxvf GameServer.tar.gz
+\cp -rf gameServer/* gameServer_101/
+=====================
+
+=================
+cp /data/fe/shell/target_lq_20191130/package/GameServer.tar.gz  ./
+y
+tar -zxvf GameServer.tar.gz
+\cp -rf gameServer/* gameServer_102/
+=====================
