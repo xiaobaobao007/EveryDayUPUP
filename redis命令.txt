@@ -1,4 +1,27 @@
-string
+--------------------
+shutdown
+cd C:\Users\Administrator\Desktop\redis64-3.0.501
+redis-server.exe redis.windows.conf
+./redis-cli keys "ScoreArenaRobot_*" | xargs ./redis-cli del
+--------------------
+通用键的操作
+keys *
+keys my*
+keys my?
+exists key
+rename oldname newname
+expire key mm--------------------设置有效时间
+ttl key 所剩余过期时间（没有设置-1）
+type key
+================================================================================
+数据库操作
+默认的是0数据库
+select index选择第几个数据库
+move name index移动到第几个数据库
+multi--------------------开启事务
+exec--------------------提交
+discard--------------------回滚
+================================================================================string
 set key value
 get key
 del key
@@ -61,24 +84,6 @@ zrem key member1 member2--------------------删除
 zremrangebyrank key rank1 rank2--------------------排名范围
 zremrangebyscore key score1 score2--------------------分数排名
 ================================================================================
-通用键的操作
-keys *
-keys my*
-keys my?
-exists key
-rename oldname newname
-expire key mm--------------------设置有效时间
-ttl key 所剩余过期时间（没有设置-1）
-type key
-================================================================================
-数据库操作
-默认的是0数据库
-select index选择第几个数据库
-move name index移动到第几个数据库
-multi--------------------开启事务
-exec--------------------提交
-discard--------------------回滚
-================================================================================
 持久化操作
 1、RDB
 在指定的时间内把内存数据写入硬盘
@@ -88,11 +93,6 @@ discard--------------------回滚
 每个操作写入日志
 优点：安全
 缺点：效率低
---------------------
-shutdown
-cd C:\Users\Administrator\Desktop\redis64-3.0.501
-redis-server.exe redis.windows.conf
---------------------
 3、同时使用RDB和AOF
 4、无持久化内存缓存机制
 

@@ -13,10 +13,12 @@ tar -zxvf 解压
 tar -zcvf 压缩
 /usr/local/bin
 
+source C:/Users/Administrator/Desktop/xxys_1444_192.168.1.79_3306_2019_12_03_01.sql
 mysql -uroot -proot fe_game_101 < fe_game.sql 导入sql文件
-mysqldump -uroot -proot -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
+mysqldump -uroot -pranshao -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
+mysqldump -uroot -pranshao  fe_game_10 player charge> fe_game_10.sql
 
-mysql -uroot -p fe_game_101 < fe_game.sql
+mysql -uroot -ppassword en_game < fe_game_10.sql
 
 140.143.156.102
 62.234.0.140
@@ -25,9 +27,17 @@ server dabao.sh
 center pullPackage.sh
 center deployCenter.sh
 
-打分支：
-./dabao.sh lq_0907
+scp root@211.159.153.194:/root/en_package/LoginServer.tar.gz  ./
+scp root@211.159.153.194:/root/en_package/GMtools4fe.tar.gz  ./
+scp root@211.159.153.194:/root/en_package/GameServer.tar.gz  ./
 ============
+scp root@140.143.156.102:/root/db.sql  ./
+scp root@140.143.156.102:/data/fe/shell/target_en_20190923/package/GameServer.tar.gz  ./
+tar -zxvf GameServer.tar.gz
+\cp -rf gameServer/* gameServer_2000/
+
+\cp -rf centerServer/* centerServer_8066/
+
 scp root@10.163.1.114:/data/fe/shell/target_en_20190923/package/GameServer.tar.gz  ./
 tar -zxvf GameServer.tar.gz
 \cp -rf gameServer/* gameServer_101/
@@ -58,3 +68,5 @@ y
 tar -zxvf GameServer.tar.gz
 \cp -rf gameServer/* gameServer_102/
 =====================
+
+ll /proc/---/cwd
