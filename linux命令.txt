@@ -14,7 +14,7 @@ tar -zcvf 压缩
 /usr/local/bin
 
 source C:/Users/Administrator/Desktop/xxys_1444_192.168.1.79_3306_2019_12_03_01.sql
-mysql -uroot -proot fe_game_101 < fe_game.sql 导入sql文件
+mysql -uroot -ppassword en_game < 20200102.sql 导入sql文件
 mysqldump -uroot -pranshao -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
 mysqldump -uroot -pranshao  fe_game_10 player charge> fe_game_10.sql
 

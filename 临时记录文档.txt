@@ -37,3 +37,8 @@ select type,from_unixtime(beginTime),from_unixtime(endTime),showOrder,param from
 
   SELECT *
         FROM (select count(*) as a,sum(level) as b from player where level>10) as c;
+
+
+-r递归该文件夹
+-f不询问执行
+-i操作提示
