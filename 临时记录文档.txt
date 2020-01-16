@@ -1,12 +1,31 @@
-﻿=MID(OFFSET(N9,ROW(N9)-9,0,1,1),1,FIND("(",OFFSET(N9,ROW(N9)-9,0,1,1))-1)
-=MID(OFFSET(N8,ROW(N8)-8,0,1,1),5,LEN(OFFSET(N8,ROW(N8)-8,0,1,1))-7)
+﻿支付宝682.82
+微信0.83
+工商
+招商4857.25
+中国103.51
 
+
+mysqldump -uroot -pranshao fe_game_10 > game_20200116.sql
+
+drop table if exists t1;
+CREATE TABLE `t1` (
+  `c1` int(11) NOT NULL,
+  `c2` int(11) NOT NULL,
+  `c3` int(11) NOT NULL,
+  `c4` int(11) NOT NULL
+);
+#INSERT INTO t1 VALUES(1,1,1,1),(2,2,2,2),(3,3,3,3);
+alter table t1 add hash key a(c1);
+
+SELECT * FROM t1 WHERE MATCH(c4) AGAINST('11111'); 
+
+select money from charge as a1 where 3>(select count(distinct money) from charge as a2 where a1.money<a2.money);
+explain select *from test \G;
 
 select account from player where createTime>1573228800
 select account from player where createTime between 1574524800 and 1575043200
 select account from player where userId in (select userId from task where taskId=42073 and status=0);
 update activityconfig set beginTime=1514736000,endTime=1517414400;
-
 
 primary 主键索引:只能有一个,不允许空
 unique 唯一索引:索引值必须唯一,允许空
@@ -16,29 +35,52 @@ fulltext 全文索引:不能被修改
 update player set account=left(account,8)+userId%100 where length(account)>=10;
 update player set account=userId%100;
 ==============
-
-truncate slavefight;
-delete from gamelog where type=15; 
 XCK64F24J65BULXUD8XZDQ6RU
 
 select count(*),chargeId from charge where status =2 and createTime>1572537600 and createTime<1575129600 and chargeId between 7201 and 7224 group by chargeId
-
 select sum(money) sum,from_unixtime(createTime,"%y-%m-%d") day from charge group by day order by day desc limit 20
-select sum(money) sum,from_unixtime(createTime,"%y-%m") day from charge group by day order by day desc limit 5
-
-select sum(money) sum,from_unixtime(createTime,"%y-%m-%d") day from charge where createTime >1575129600 group by day order by sum desc limit 20
-==============
-select count(*) from player;select count(*) from player where lastLoginTime<lastLogoutTime;
 select account,userName,level,vipLv,totalRecharge,power,from_unixtime(createTime),from_unixtime(lastLoginTime),from_unixtime(lastLogoutTime),todayOnlineTime/3600,osType from player where userId=2073248561
-================
+
 select orderId,money,status,from_unixtime(createTime) from charge where createTime>1576598400 order by createTime desc;
 
+活动查询：
 select type,from_unixtime(beginTime),from_unixtime(endTime),showOrder,param from activityconfig
 
-  SELECT *
-        FROM (select count(*) as a,sum(level) as b from player where level>10) as c;
+充值查询：
+select *,from_unixtime(doneTime) from charge where userId= 1591000561 and status =2 order by doneTime desc limit 20
+select *,from_unixtime(createTime) from charge where userId= 1514003898 order by createTime desc limit 20
+
+select *from activityinfo where userId in (select userId from player where userName = "随机")
 
 
 -r递归该文件夹
 -f不询问执行
 -i操作提示
+4200000473202001156881679572
+
+432167228278308865
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+我叫XX，出生于1996年。家在新密市，毕业于新乡学院，之前在xxx工作了一年时间，主要负责服务器的工作。
+由于x工作信念的原因，我先择了离开。今天有幸得到您的面试的机会，非常高兴。我坚信我的xxxx1 xxx2 xxx3 技术能为贵公司所用。
+贵公司有什么奖罚分明的规定吗?
