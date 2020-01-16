@@ -1,11 +1,4 @@
-﻿支付宝682.82
-微信0.83
-工商
-招商4857.25
-中国103.51
-
-
-mysqldump -uroot -pranshao fe_game_10 > game_20200116.sql
+﻿mysqldump -uroot -pranshao fe_game_10 > game_20200116.sql
 
 drop table if exists t1;
 CREATE TABLE `t1` (
