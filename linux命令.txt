@@ -1,3 +1,4 @@
+login.url=http://47.254.21.166:12100
 yum install lrzsz 安装rz
 
 souce 在里边边加载sql文件
@@ -13,10 +14,10 @@ tar -zxvf 解压
 tar -zcvf 压缩
 /usr/local/bin
 
-source C:/Users/Administrator/Desktop/xxys_1444_192.168.1.79_3306_2019_12_03_01.sql
-mysql -uroot -ppassword en_game < 20200102.sql 导入sql文件
+source C:\Users\Administrator\Desktop\101_charge.sql
+mysql -uroot -p123456 charge < 101_instance.sql 导入sql文件
 mysqldump -uroot -pranshao -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
-mysqldump -uroot -pranshao  fe_game_10 player charge> fe_game_10.sql
+mysqldump -uroot -pranshao  fe_game_101 charge> 101_charge.sql
 
 mysql -uroot -ppassword en_game < fe_game_10.sql
 
@@ -51,6 +52,9 @@ scp root@211.159.153.194:/data/fe/main/GameServer.tar.gz  ./
 
 grant all PRIVILEGES on fe_game_102.* to root@'10.163.34.54'  identified by 'root';
 
+rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GMtools4fe.tar.gz .
+rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GameServer.tar.gz .
+rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/LoginServer.tar.gz .
 
 =================
 cp /data/fe/shell/target_qq_20191130/package/GameServer.tar.gz  ./

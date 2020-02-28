@@ -1,12 +1,42 @@
-﻿mysqldump -uroot -pranshao fe_game_10 > game_20200116.sql
+﻿
 
-drop table if exists t1;
-CREATE TABLE `t1` (
-  `c1` int(11) NOT NULL,
-  `c2` int(11) NOT NULL,
-  `c3` int(11) NOT NULL,
-  `c4` int(11) NOT NULL
-);
+
++-------------------+-----------+-----------+----------+------------------------+-------+----------+--------+------------+--------------+------------+
+| orderId           | userId    | accountId | chargeId | cpOrder                | money | platform | status | createTime | callbackTime | doneTime   |
+| 33036285651201250 | 117000066 | 6911243   |     7307 | 0020200224033531214786 |  2999 |       13 |      2 | 1582540528 |   1582540543 | 1582540543 |/////4_61_1_20,2_20050_1,2_20077_1
+| 33036290427269036 | 117000066 | 6911243   |     7953 | 0020200224235006404081 |  2999 |       13 |      2 | 1582613405 |   1582613417 | 1582613417 |/////3_31614_1,10001_500000000,20023_5,20029_5
++-------------------+-----------+-----------+----------+------------------------+-------+----------+--------+------------+--------------+------------+
+| from_unixtime(1582540543) | from_unixtime(1582613417) |
+| 2020-02-24 03:35:43       | 2020-02-24 23:50:17       |
++---------------------------+---------------------------+
+
+cd /data/logs/109/logic/
+cat gs_logic-2020-02-26-08-1.log | tail -n +0000 | head -n 2000
+
+cat gs_logic-2020-02-24-23-1.log | tail -n +13500 | head -n 500
+
+cd /data/logs/117/logs/
+cat gameServer-2020-02-24-18-1.log | tail -n +100 | head -n 500
+
+
+cd /data/fe/main/gameServer_2000/
+./shutdown.sh
+sleep 3
+mysql -uroot -pranshao
+sleep 1
+use fe_game_2000
+sleep 1
+truncate activityconfig;
+sleep 2
+exit;
+./start.sh
+tail -f stout.sh
+
+
+
+mysqld --init-file=C:\Users\Administrator\Desktop\1.txt --console
+mysqld --defaults-file=”D:\mysql-8.0.19-winx64\my.ini” --nit-file=”C:\Users\Administrator\Desktop\1.txt”
+
 #INSERT INTO t1 VALUES(1,1,1,1),(2,2,2,2),(3,3,3,3);
 alter table t1 add hash key a(c1);
 
@@ -32,16 +62,24 @@ XCK64F24J65BULXUD8XZDQ6RU
 
 select count(*),chargeId from charge where status =2 and createTime>1572537600 and createTime<1575129600 and chargeId between 7201 and 7224 group by chargeId
 select sum(money) sum,from_unixtime(createTime,"%y-%m-%d") day from charge group by day order by day desc limit 20
-select account,userName,level,vipLv,totalRecharge,power,from_unixtime(createTime),from_unixtime(lastLoginTime),from_unixtime(lastLogoutTime),todayOnlineTime/3600,osType from player where userId=2073248561
+mysql -uroot -pranshao
+use fe_game_109
+select account,userId,diamond,userName,level,vipLv,totalRecharge,power,from_unixtime(createTime),from_unixtime(lastLoginTime),from_unixtime(lastLogoutTime),todayOnlineTime/3600 from player where userId=109004704;
+
+select account,userId,userName,level,vipLv,totalRecharge,power,from_unixtime(createTime),from_unixtime(lastLoginTime),from_unixtime(lastLogoutTime),todayOnlineTime/3600 from player where userName=""
 
 select orderId,money,status,from_unixtime(createTime) from charge where createTime>1576598400 order by createTime desc;
 
 活动查询：
-select type,from_unixtime(beginTime),from_unixtime(endTime),showOrder,param from activityconfig
+mysql -uroot -pranshao
+use fe_game_101
+select type,from_unixtime(beginTime),from_unixtime(endTime),showOrder,param from activityconfig;
 
 充值查询：
 select *,from_unixtime(doneTime) from charge where userId= 1591000561 and status =2 order by doneTime desc limit 20
-select *,from_unixtime(createTime) from charge where userId= 1514003898 order by createTime desc limit 20
+select *,from_unixtime(createTime) from charge where userId= 1506013472 order by createTime desc limit 20
+
+select *,from_unixtime(createTime+3600*15) from charge order by createTime desc limit 20;
 
 select *from activityinfo where userId in (select userId from player where userName = "随机")
 
@@ -57,23 +95,136 @@ select *from activityinfo where userId in (select userId from player where userN
 
 
 
+rsync -vzrtopg --progress -e ssh root@test:/data/fe/en/* .
 
 
+login.url=http://192.168.0.246:8100
 
 
+mysql -uroot -pranshao
+use fe_login_gm;
+select *from charge where chargeId=7953 and status =2;
 
+select *from roleinfo where account in ("7008346","7001744","7006765","7009185","7004924","7019535","7042498","7021809","7026516","7027257","7033818","7017915");
 
+select *from charge where chargeId=7953;
+7008346,7001744,7006765,7009185,7004924,7019535,7042498,7021809,7026516,7027257,7033818,7017915
 
+mysql -uroot -pranshao
+set @time1=UNIX_TIMESTAMP('2020-02-24');
+set @time2=UNIX_TIMESTAMP('2020-02-25');
+=========================================;
+use fe_game_111
+select count(*) as 新增人数 from player where createTime between @time1 and @time2;select sum(money)/100 as 当天新增收入 from charge where status=2 and createTime between @time1 and @time2;select sum(money)/100 as 总收入 from charge where status=2 and createTime<@time2;select count(*) as 活跃人数 from player where createTime<@time2 and lastLoginTime>@time1;select count(*) as 总人数 from player where createTime<@time2;select  sum(one)/100 as 新收入,count(one) as 新付费人数 from (select sum(money) as one from charge where status=2 and createTime<@time2 and userId in (select userId from player where createTime between @time1 and @time2) group by userId) as a;
 
-
-
-
-
-
-
-
-
+select count(*) as 新增人数 from player where createTime between @time1 and @time2;
+select sum(money)/100 as 当天新增收入 from charge where status=2 and createTime between @time1 and @time2;
+select sum(money)/100 as 总收入 from charge where status=2 and createTime<@time2;
+select count(*) as 活跃人数 from player where createTime<@time2 and lastLoginTime>@time1;
+select count(*) as 总人数 from player where createTime<@time2;
+select  sum(one)/100 as 新收入,count(one) as 新付费人数 from (select sum(money) as one from charge where status=2 and createTime<@time2 and userId in (select userId from player where createTime between @time1 and @time2) group by userId) as a;
 
 我叫XX，出生于1996年。家在新密市，毕业于新乡学院，之前在xxx工作了一年时间，主要负责服务器的工作。
 由于x工作信念的原因，我先择了离开。今天有幸得到您的面试的机会，非常高兴。我坚信我的xxxx1 xxx2 xxx3 技术能为贵公司所用。
 贵公司有什么奖罚分明的规定吗?
+
+mysql -uroot -pranshao
+use fe_login_gm
+select date_format(t1.createTime,"%y-%m-%d") as a,date_format(t1.lastLoginTime,"%y-%m-%d") as b,t2.vipLv as c,count(*)
+from account t1 inner join roleinfo t2 on t1.account=t2.account group by a,b,c order by a,b,c limit 1300,300;
+mysql -uroot -pranshao
+use fe_game_101;
+select from_unixtime(createTime,"%y-%m-%d") as a,from_unixtime(lastLoginTime,"%y-%m-%d") as b,ceil(instanceCityId/50) as c,count(*) from instance t1 inner join player t2 on t1.userId=t2.userId group by a,b,c order by a,b,c;
+
+
+select from_unixtime(createTime,"%y-%m-%d") as a,from_unixtime(lastLoginTime,"%y-%m-%d") as b,title as c,count(*) from instance t1 inner join player t2 on t1.userId=t2.userId group by a,b;
+
+
+mysql -uroot -pranshao
+use fe_login_gm
+select date_format(t1.createTime,"%y-%m-%d") as a,date_format(t1.lastLoginTime,"%y-%m-%d") as b,t2.vipLv as c,count(*)
+from account t1 inner join roleinfo t2 on t1.account=t2.account group by a,b,c order by a,b,c limit 1300,300;
+mysql -uroot -pranshao
+use fe_game_101;
+
+select from_unixtime(createTime-54000,"%y-%m-%d") as a,from_unixtime(lastLoginTime-54000,"%y-%m-%d") as b,if(instanceCityId!=0,ceil((instanceCityId-400101)/50),0) as c,count(*) from instance t1 inner join player t2 on t1.userId=t2.userId group by a,b,c order by a,b,c;
+
+
+select from_unixtime(createTime-54000,"%y-%m-%d") as a,from_unixtime(lastLoginTime-54000,"%y-%m-%d") as b,ceil(title/5) as c,count(*) from player group by a,b,c;
+
+
+
+#内部测试服务器标记
+inter.flag=true
+
+
+#login服务器内网地址 login.${服务器ID}
+login.10000=http://10.163.1.114:11000
+
+mysql> select *from charge where cpOrder=0020200218022203452368;
++-------------------+-----------+-----------+----------+------------------------+-------+----------+--------+------------+--------------+------------+
+| orderId           | userId    | accountId | chargeId | cpOrder                | money | platform | status | createTime | callbackTime | doneTime   |
++-------------------+-----------+-----------+----------+------------------------+-------+----------+--------+------------+--------------+------------+
+| 30784451574829388 | 109004704 | 7052963   |     7101 | 0020200218022203452368 |   499 |       13 |      2 | 1582017721 |   1582017736 | 1582017736 |
++-------------------+-----------+-----------+----------+------------------------+-------+----------+--------+------------+--------------+------------+
+
+
+ 贪玩 充值回调信息uid=47725520 money=1 sid=500 role_id=1998000830 role_name=47725520 package=null orderid=X2020021913175587630609321 ext={"chargeid":3,"productid":3,"orderId":"140841172171161605"} time=1582089494 sign=c92e73459e43d0b675f249e2499630ff
+2020-02-19 13:18:15.262 [XNIO-1 task-11] INFO  ?   - 通知服务器发货结果-3
+
++--------------------+------------+-----------+----------+---------+-------+----------+--------+------------+--------------+----------+
+| orderId            | userId     | accountId | chargeId | cpOrder | money | platform | status | createTime | callbackTime | doneTime |
++--------------------+------------+-----------+----------+---------+-------+----------+--------+------------+--------------+----------+
+| 140841172171161605 | 1998000830 | 47725520  |        3 | NULL    |     6 |        1 |      0 | 1582089475 |            0 |        0 |
++--------------------+------------+-----------+----------+---------+-------+----------+--------+------------+--------------+----------+
+
+
+
+
+JFinal-4.7 action report -------- 2020-02-19 14:26:23 --------------------------
+Url         : POST /pay/pay4TanWan
+Controller  : com.combunet.zombie.login.jfinal.controller.PayController.(PayController.java:1)
+Method      : pay4TanWan
+Parameter   : role_name=47725520  ext={"chargeid":3,"productid":3,"orderId":"140841172171161605"}  uid=47725520  package=null  money=1  role_id=1998000830  orderid=X2020021913175587630609321  sign=c92e73459e43d0b675f249e2499630ff  time=1582089494  sid=500  
+--------------------------------------------------------------------------------
+
+
+select count(*) from charge where serverId=6301 and status=2 group by accountId
+mysql -uroot -pranshao
+use fe_login_gm
+select chargeId,count(*) from charge where  status=2 and accountId in (select account from roleinfo where serverId between 100 and 200) group by chargeId order by chargeId;
+
+select sum(money) from charge where status=2;
+select *from charge limit 1;
+select *from roleinfo limit 1;
+
+mysql -uroot -pranshao
+use fe_game_2000
+set @player=2000000667;
+select userId from player where userId>=@player;
+delete from player where userId>=@player;
+delete from stance where userId>=@player;
+delete from general where userId>=@player;
+delete from instance where userId>=@player;
+delete from task where userId>=@player;
+delete from timelimittask where userId>=@player;
+delete from sevendaytask where userId>=@player;
+delete from equipment where userId>=@player;
+delete from playerlog where userId>=@player;
+delete from activityinfo where userId>=@player;
+delete from activityrecharge where userId>=@player;
+delete from activityrecharge2 where userId>=@player;
+delete from backpack where userId>=@player;
+delete from playerprop where userId>=@player;
+delete from corpsmember where userId>=@player;
+truncate flysky;
+truncate loopgift;
+exit;
+
+
+mysql -uroot -pranshao
+use fe_game_2000
+select *from flysky;
+select *from loopgift;
+
+
