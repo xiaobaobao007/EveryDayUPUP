@@ -1,33 +1,47 @@
-login.url=http://47.254.21.166:12100
-yum install lrzsz 安装rz
+cd ../
+rsync -vzrtopg --progress -e ssh root@10.163.1.114:/data/zombie/build/target/package/GameServer.tar.gz .
+sleep 1
+tar -zxvf GameServer.tar.gz
+cd gameServer/
+./shutdown.sh
+VERSION=$(cat VERSION)
+echo "版本号是"$VERSION
+sleep 1
+./start.sh
+tail -f stout.log
 
-souce 在里边边加载sql文件
-touch 新建文件
-mkdir 创建文件夹
-cp -rf 复制全部文件
-rz 上传文件
-sz 下载文件
+
+rsync -vzrtopg --progress -e ssh root@140.143.156.102:/data/zombie/main/centerServer/CenterServer.tar.gz .
+
 chattr +-i db.conf 加减操作
 mv 改名字
 ntpdate  ntp1.aliyun.com 时间同步
-tar -zxvf 解压
-tar -zcvf 压缩
-/usr/local/bin
 
+curl 连接：获取访问内容
 source C:\Users\Administrator\Desktop\101_charge.sql
 mysql -uroot -p123456 charge < 101_instance.sql 导入sql文件
 mysqldump -uroot -pranshao -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
 mysqldump -uroot -pranshao  fe_game_101 charge> 101_charge.sql
 
 mysql -uroot -ppassword en_game < fe_game_10.sql
-
 mysqldump -uroot -pranshao  fe_game_10 charge> game_charge_20200110.sql
 
+cd /data/fe/online/
+rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GameServer.tar.gz .
+RanShao2016#)%!
+
+scp root@211.159.153.194:/root/en_package/GameServer.tar.gz  ./
 scp root@211.159.153.194:/root/en_package/LoginServer.tar.gz  ./
 scp root@211.159.153.194:/root/en_package/GMtools4fe.tar.gz  ./
-scp root@211.159.153.194:/root/en_package/GameServer.tar.gz  ./
 
 scp root@211.159.153.194:/root/en_package/*Server.tar.gz  ./
+cd /data/fe/online/
+tar -zxvf GameServer.tar.gz
+cat gameServer/VERSION
+
+cd /data/fe/online/
+cat gameServer/VERSION
+
 ============
 scp root@140.143.156.102:/root/db.sql  ./
 scp root@140.143.156.102:/data/fe/shell/target_en_20190923/package/GameServer.tar.gz  ./
@@ -50,8 +64,13 @@ cp server.tar.gz self_tool/self_tool_for_backend/update_files/backend/
 
 scp root@211.159.153.194:/data/fe/main/GameServer.tar.gz  ./
 
-grant all PRIVILEGES on fe_game_102.* to root@'10.163.34.54'  identified by 'root';
+grant all privileges on *.* to root@"10.163.34.54" identified by "root" with grant option;
 
+grant all PRIVILEGES on fe_game_102.* to root@'10.163.34.54'  identified by 'root';
+mysql -u root -proot -h 10.163.34.54 -P 3306
+mysql -u root -proot -h 140.143.156.102 -P 3306 -D zombie_game
+
+rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/CenterServer.tar.gz .
 rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GMtools4fe.tar.gz .
 rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GameServer.tar.gz .
 rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/LoginServer.tar.gz .
@@ -64,3 +83,12 @@ tar -zxvf GameServer.tar.gz
 =====================
 
 ll /proc/---/cwd
+
+
+
+
+
+
+
+
+
