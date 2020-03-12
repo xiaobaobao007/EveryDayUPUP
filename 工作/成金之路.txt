@@ -30,5 +30,5 @@ kafka
 
 急需:::熟悉各种网络协议,shell脚本,JVM
 待需:::no.sql数据库,Memcached数据库,SOA(面向服务),OSGi（开放服务网关协议),HBase(数据库),python脚本
-缓需:::golang语言,Shiro(安全框架)，Supervisor，PgSQL，
+缓需:::golang语言,Shiro(安全框架)，Supervisor，PgSQL，Arthas
 
