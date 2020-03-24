@@ -1,0 +1,15 @@
+例子：
+wget https://alibaba.github.io/arthas/arthas-demo.jar
+java -jar arthas-demo.jar
+
+启动：java -jar /data/tools/arthas-boot.jar --target-ip 0.0.0.0  --http-port 9094 --telnet-port 3658
+web访问：http://140.143.156.102:9094/           ip端口和地址一样 
+
+命令：
+查看系统的实时数据面板：dashboard
+打印线程1的栈：thread 1
+在线程1查找：thread 1 | grep 'main('
+查找JVM已加载的类：sc -d *MathGame
+反编译代码：jad demo.MathGame
+查看函数的参数返回值异常信息：watch demo.MathGame primeFactors returnObj
+ 
