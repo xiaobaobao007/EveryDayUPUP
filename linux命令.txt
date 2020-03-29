@@ -85,6 +85,13 @@ tar -zxvf GameServer.tar.gz
 ll /proc/---/cwd
 
 
+yum install iproute ftp bind-utils net-tools wget -y
+iproute 用来执行 ip address 查看本机地址
+ftp 用来测试ftp 服务器
+bind_utils 用来运行 nslookup
+net-tools 用来执行 netstate
+wget 既是执行 wget的
+
 
 
 
