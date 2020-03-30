@@ -4,9 +4,9 @@ Port 8888		代理的端口
 Allow 127.0.0.1	被允许代理的ip
 重启		sudo service tinyproxy restart
 ========================================检查日志========================================
-cd /data/logs/109/logic/
-cat gs_logic-2020-02-28-00-1.log | tail -n +2500 | head -n 500
-
+cd /data/logs/129/logic/
+cat gs_logic-2020-03-26-00-1.log | tail -n +2500 | head -n 500
+addGeneral|10|7143171|13|129000210
 cd /data/logs/117/logs/
 cat gameServer-2020-02-24-18-1.log | tail -n +100 | head -n 500
 ========================================玩家数据查询========================================

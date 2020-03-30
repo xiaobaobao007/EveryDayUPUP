@@ -22,3 +22,6 @@ ognl '@com.combunet.zombie.gs.logic.user.service.WelfareService@me.extractionWit
 查看运行耗时：trace com.combunet.zombie.framework.util.DateUtil getNow
 查看调用被调用的方法栈：stack com.combunet.zombie.framework.util.DateUtil getNow
 查看方法被调用的成功率等：monitor 类 方法
+
+watch  com.combunet.zombie.gs.logic.user.service.PlayerService loginWithCommit "{params,returnObj}" -x 2
+=======
