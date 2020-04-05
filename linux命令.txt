@@ -1,17 +1,12 @@
-cd ../
-rsync -vzrtopg --progress -e ssh root@10.163.1.114:/data/zombie/build/target/package/GameServer.tar.gz .
-sleep 1
-tar -zxvf GameServer.tar.gz
-cd gameServer/
-./shutdown.sh
-VERSION=$(cat VERSION)
-echo "版本号是"$VERSION
-sleep 1
-./start.sh
-tail -f stout.log
 
 
-rsync -vzrtopg --progress -e ssh root@140.143.156.102:/data/zombie/main/centerServer/CenterServer.tar.gz .
+mysqldump -h 127.0.0.1 -uroot -pranshao -d fe_game_101 > fe_game_20200402.sql
+
+rsync -vzrtopg --progress -e ssh root@192.168.0.117:/data/fe/merge/MergeTools.tar.gz .
+t4game@warrior
+
+
+scp root@47.88.34.40:/data/fe/merge/MergeTools.tar.gz ./
 
 chattr +-i db.conf 加减操作
 mv 改名字
