@@ -32,3 +32,5 @@ mc -c 548c4f57 /tmp/NewGuideService.java -d /tmp
 # 热更新
 redefine /tmp/com/combunet/zombie/gs/logic/user/service/NewGuideService.class
 jad com.combunet.zombie.gs.logic.user.service.NewGuideService
+===============
+watch  com.combunet.zombie.gs.util.ProtocolUtil parseRequest "{params,returnObj}" -x 2
