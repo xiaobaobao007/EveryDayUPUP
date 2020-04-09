@@ -1,8 +1,11 @@
-﻿centeros安装	yum -y install tinyproxy
+﻿
+
+centeros安装	yum -y install tinyproxy
 配置文件		/etc/tinyproxy.conf
 Port 8888		代理的端口
 Allow 127.0.0.1	被允许代理的ip
-重启		sudo service tinyproxy restart
+重启		sudo service tinyproxy restart 
+/bin/systemctl start tinyproxy
 ========================================检查日志========================================
 cd /data/logs/129/logic/
 cat gs_logic-2020-03-26-00-1.log | tail -n +2500 | head -n 500

@@ -1,0 +1,15 @@
+1：架构设计
+2：TCP/IP协议，http协议
+3：异步非阻塞IO
+4：搭建运维工具
+5：gc
+6：shell脚本
+
+
+
+
+其余
+1：linux下的网络编程
+2：python，c,c++
+3：Spring+SpringMVC+MyBatis
+4：压力测试Apache JMeter
