@@ -79,7 +79,7 @@ tar -zxvf GameServer.tar.gz
 
 ll /proc/---/cwd
 
-
+=========================================================
 yum install iproute ftp bind-utils net-tools wget -y
 iproute 用来执行 ip address 查看本机地址
 ftp 用来测试ftp 服务器
@@ -87,7 +87,75 @@ bind_utils 用来运行 nslookup
 net-tools 用来执行 netstate
 wget 既是执行 wget的
 
+hostnamectl set-hostname xxx // 修改主机名
 
+ssh-copy-id xxx //copy 密钥 实现免密登录
+
+#添加hosts
+scp /etc/hosts root@xx:/etc   //拷贝hosts
+
+#修改时区
+timedatectl  set-timezone America/Phoenix
+timedatectl set-local-rtc 0
+vim /etc/timezone
+
+#启用firewall 防火墙
+systemctl start firewalld.service
+systemctl enable firewalld.service
+#拷贝规则
+scp /etc/firewalld/zones/public.xml root@xx:/etc/firewalld/zones/
+firewall-cmd --reload //更新规则
+firewall-cmd --list-all //显示当前规则
+========================================
+#安装java 
+#安装mysql
+yum -y install yum-utils
+rpm -Uvh mysql80-community-release-el6-n.noarch.rpm
+yum repolist all | grep mysql
+yum-config-manager --disable mysql80-community
+yum-config-manager --enable mysql56-community
+yum repolist enabled | grep mysql
+yum install  -y mysql-community-server
+#修改MySQL配置文件为utf8mb4
+systemctl start mysqld.service
+mysqladmin password 'ranshao'
+# 授权远程访问
+grant all privileges on *.* to 'root'@'%' identified by 'ranshao' with grant option;
+flush privileges;
+
+
+scp root@172.26.64.182:~/*.gz .
+scp root@172.26.64.182:~/*.rpm .
+ll
+tar -zxf jdk-8u191-linux-x64.tar.gz
+vim /etc/profile
+ll
+mv jdk1.8.0_191/ /usr/local/
+source /etc/profile
+java -version
+yum -y install yum-utils
+rpm -Uvh mysql80-community-release-el6-n.noarch.rpm
+rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
+yum repolist all | grep mysql
+yum-config-manager --disable mysql80-community
+yum-config-manager --enable mysql56-community
+yum repolist enabled | grep mysql
+yum install  -y mysql-community-server
+vim /etc/my.cnf
+systemctl start mysqld.service
+mysqladmin password 'ranshao'
+mysql -p
+scp root@172.26.64.182:/data/service/redis-3.2.8.tar.gz .
+ll
+tar -zxf redis-3.2.8.tar.gz
+cd redis-3.2.8
+ll
+make && make install
+yum -y install gcc
+make && make install
+exit
+ll
+history
 
 
 
