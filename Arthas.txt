@@ -25,12 +25,12 @@ ognl '@com.combunet.zombie.gs.logic.user.service.WelfareService@me.extractionWit
 
 watch  com.combunet.zombie.gs.logic.user.service.PlayerService loginWithCommit "{params,returnObj}" -x 2
 =======
-jad --source-only com.combunet.zombie.gs.logic.user.service.NewGuideService > /tmp/NewGuideService.java
-vim /tmp/UserController.java
-sc -d *NewGuideService | grep classLoaderHash
-mc -c 548c4f57 /tmp/NewGuideService.java -d /tmp
+jad --source-only com.combunet.zombie.gs.logic.user.service.InstanceService > /tmp/InstanceService.java
+vim /tmp/InstanceService.java
+sc -d *InstanceService | grep classLoaderHash
+mc -c 816f27d /tmp/InstanceService.java -d /tmp
 # 热更新
-redefine /tmp/com/combunet/zombie/gs/logic/user/service/NewGuideService.class
-jad com.combunet.zombie.gs.logic.user.service.NewGuideService
+redefine /tmp/com/combunet/zombie/gs/logic/user/service/InstanceService.class
+jad com.combunet.zombie.gs.logic.user.service.InstanceService
 ===============
 watch  com.combunet.zombie.gs.util.ProtocolUtil parseRequest "{params,returnObj}" -x 2
