@@ -32,6 +32,8 @@ select concat('drop table ',table_name,';') from information_schema.TABLES where
 
 
 玩家信息查询：
+select userId,from_unixtime(lastLoginTime)  from player order by lastLoginTime desc limit 10
+
 select account,userId,diamond,userName,level,vipLv,totalRecharge,power,from_unixtime(createTime),from_unixtime(lastLoginTime),from_unixtime(lastLogoutTime),todayOnlineTime/3600 from player 
 where userId=109004704;
 
