@@ -2,7 +2,7 @@ netstat   -nultp 查看已经被占用的端口
 
 mysqldump -h 127.0.0.1 -uroot -pranshao -d fe_game_101 > fe_game_20200402.sql
 
-rsync -vzrtopg --progress -e ssh root@192.168.0.117:/data/fe/merge/MergeTools.tar.gz .
+rsync -vzrtopg --progress -e ssh root@140.143.156.102:/data/zombie/build/target/package/GameServer.tar.gz .
 t4game@warrior
 
 
