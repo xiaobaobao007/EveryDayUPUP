@@ -38,31 +38,9 @@ cd /data/fe/online/
 cat gameServer/VERSION
 
 ============
-scp root@140.143.156.102:/root/db.sql  ./
-scp root@140.143.156.102:/data/fe/shell/target_en_20190923/package/GameServer.tar.gz  ./
-tar -zxvf GameServer.tar.gz
-\cp -rf gameServer/* gameServer_2000/
-
-\cp -rf centerServer/* centerServer_8066/
-
-scp root@10.163.1.114:/data/fe/shell/target_en_20190923/package/GameServer.tar.gz  ./
-tar -zxvf GameServer.tar.gz
-\cp -rf gameServer/* gameServer_101/
-=====================
-
-cd /tmp/build/
-看build.sh文件内容路径（途径和名字）
-./build.sh
-cp server.tar.gz self_tool/self_tool_for_backend/update_files/backend/
-回到self_tool_for_backend执行main_mxw.py
-
-
-scp root@211.159.153.194:/data/fe/main/GameServer.tar.gz  ./
-
 grant all privileges on *.* to root@"10.163.34.54" identified by "root" with grant option;
 
 grant all PRIVILEGES on fe_game_102.* to root@'10.163.34.54'  identified by 'root';
-mysql -u root -proot -h 10.163.34.54 -P 3306
 mysql -u root -proot -h 140.143.156.102 -P 3306 -D zombie_game
 
 rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/CenterServer.tar.gz .
@@ -71,14 +49,7 @@ rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GameServe
 rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/LoginServer.tar.gz .
 
 =================
-cp /data/fe/shell/target_qq_20191130/package/GameServer.tar.gz  ./
-y
-tar -zxvf GameServer.tar.gz
-\cp -rf gameServer/* gameServer_101/
-=====================
-
 ll /proc/---/cwd
-
 =========================================================
 yum install iproute ftp bind-utils net-tools wget -y
 iproute 用来执行 ip address 查看本机地址
