@@ -1,4 +1,10 @@
-﻿select userId,sum(money) a from charge where userId between 2070000000 and 2071000000 and  createTime > 1587052800 and status = 2 group by userId order by a desc limit 200
+﻿=============netty开始记录====================
+13/06*03：解决粘包和半包：
+14/04*39：编码方式：
+14/08*26：讲解pb
+15/08*30：netty结合pb
+=============netty结束记录====================
+select userId,sum(money) a from charge where userId between 2070000000 and 2071000000 and  createTime > 1587052800 and status = 2 group by userId order by a desc limit 200
 
 select a from (select distinct(round(((userId%1000000)/1000),0)) as a from player)as b order by a
 
