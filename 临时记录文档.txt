@@ -1,8 +1,22 @@
-﻿=============netty开始记录====================
+﻿====================基础知识=====================
+threadlocal底层，
+java动态代理，
+对称加密和非对称加密，
+threadlocal的threadlocalmap，
+和cglib，
+mysql的innor db和myisam
+synthronized锁升级，
+枚举单利，
+垃圾收集cms，g1，
+longadder，
+枚举单例
+=============netty开始记录====================
 13/06*03：解决粘包和半包：
 14/04*39：编码方式：
 14/08*26：讲解pb
 15/08*30：netty结合pb
+19/06*07：零复制
+堆内外内存
 =============netty结束记录====================
 select userId,sum(money) a from charge where userId between 2070000000 and 2071000000 and  createTime > 1587052800 and status = 2 group by userId order by a desc limit 200
 
@@ -53,7 +67,12 @@ select type,from_unixtime(beginTime),from_unixtime(endTime),showOrder,param from
 select *,from_unixtime(doneTime) from charge where userId= 1591000561 and status =2 order by doneTime desc limit 20
 select *,from_unixtime(createTime) from charge where chargeId=7009 order by createTime desc limit 20
 select count(*),chargeId from charge where status =2 and createTime>1572537600 and createTime<1575129600 and chargeId between 7201 and 7224 group by chargeId
-select sum(money) sum,from_unixtime(createTime,"%y-%m-%d") day from charge group by day order by day desc limit 20
+
+通用查询：
+select count(1) from player where level >10; 
+select count(1) from player where level; 
+select sum(money)from charge where status =2;
+select sum(money) sum,from_unixtime(createTime,"%y-%m-%d") day from charge where status =2 group by day order by day desc limit 20;
 ========================================英文版统计数据========================================
 mysql -uroot -pranshao
 set @time1=UNIX_TIMESTAMP('2020-03-20');
