@@ -25,12 +25,12 @@ ognl '@com.combunet.zombie.gs.logic.user.service.WelfareService@me.extractionWit
 
 watch  com.combunet.zombie.gs.logic.user.service.PlayerService loginWithCommit "{params,returnObj}" -x 2
 =======
-jad --source-only com.combunet.zombie.gs.logic.user.service.InstanceService > /tmp/InstanceService.java
-vim /tmp/InstanceService.java
-sc -d *InstanceService | grep classLoaderHash
-mc -c 816f27d /tmp/InstanceService.java -d /tmp
+jad --source-only com.combunet.zombie.gs.logic.user.service.ScoreArenaService > /tmp/ScoreArenaService.java
+vim /tmp/ScoreArenaService.java
+sc -d *ScoreArenaService | grep classLoaderHash
+mc -c 816f27d /tmp/ScoreArenaService.java -d /tmp
 # 热更新
-redefine /tmp/com/combunet/zombie/gs/logic/user/service/InstanceService.class
-jad com.combunet.zombie.gs.logic.user.service.InstanceService
+redefine /tmp/com/combunet/zombie/gs/logic/user/service/ScoreArenaService.class
+jad com.combunet.zombie.gs.logic.user.service.ScoreArenaService
 ===============
 watch  com.combunet.zombie.gs.util.ProtocolUtil parseRequest "{params,returnObj}" -x 2
