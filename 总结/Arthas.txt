@@ -28,7 +28,7 @@ watch  com.combunet.zombie.gs.logic.user.service.PlayerService loginWithCommit "
 jad --source-only com.combunet.zombie.gs.logic.user.service.ScoreArenaService > /tmp/ScoreArenaService.java
 vim /tmp/ScoreArenaService.java
 sc -d *ScoreArenaService | grep classLoaderHash
-mc -c 816f27d /tmp/ScoreArenaService.java -d /tmp
+mc -c 1fb3ebeb /tmp/ScoreArenaService.java -d /tmp
 # 热更新
 redefine /tmp/com/combunet/zombie/gs/logic/user/service/ScoreArenaService.class
 jad com.combunet.zombie.gs.logic.user.service.ScoreArenaService
