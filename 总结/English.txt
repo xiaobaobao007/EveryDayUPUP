@@ -1,3 +1,4 @@
 eviction																				缓存
 flushInterval																			刷新间隔
 phantomReference																			幻引用
+inheritableThreadLocal																		可继承的threadlocal

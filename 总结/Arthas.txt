@@ -12,6 +12,7 @@ web访问：http://140.143.156.102:9094/           ip端口和地址一样
 查找JVM已加载的类：sc -d *MathGame
 反编译代码：jad demo.MathGame
 查看函数的参数返回值异常信息：watch demo.MathGame primeFactors returnObj
+ognl '@com..@??(1997000004,(#test=new java.util.ArrayList(), #test.add(123456), #test))'
 =============================================================================
 反编译：jad com.combunet.zombie.gs.logic.user.dao.ActivityConfigDAO
 监听调用的方法：watch  com.combunet.zombie.gs.logic.user.service.WelfareService extractionWithCommit "{params,returnObj}" -x 2
