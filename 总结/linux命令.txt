@@ -1,11 +1,5 @@
 netstat   -nultp 查看已经被占用的端口
 
-mysqldump -h 127.0.0.1 -uroot -pranshao -d fe_game_101 > fe_game_20200402.sql
-
-rsync -vzrtopg --progress -e ssh root@140.143.156.102:/data/zombie/build/target/package/GameServer.tar.gz .
-t4game@warrior
-
-
 scp root@47.88.34.40:/data/fe/merge/MergeTools.tar.gz ./
 
 chattr +-i db.conf 加减操作
@@ -18,36 +12,14 @@ mysql -uroot -p123456 charge < 101_instance.sql 导入sql文件
 mysqldump -uroot -pranshao -d fe_game_6 > /data/fe_game_7.sql (-d只导出表结构)
 mysqldump -uroot -pranshao  fe_game_101 charge> 101_charge.sql
 
-mysql -uroot -ppassword en_game < fe_game_10.sql
-mysqldump -uroot -pranshao  fe_game_10 charge> game_charge_20200110.sql
-
-cd /data/fe/online/
 rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GameServer.tar.gz .
-RanShao2016#)%!
-
-scp root@211.159.153.194:/root/en_package/GameServer.tar.gz  ./
-scp root@211.159.153.194:/root/en_package/LoginServer.tar.gz  ./
-scp root@211.159.153.194:/root/en_package/GMtools4fe.tar.gz  ./
-
 scp root@211.159.153.194:/root/en_package/*Server.tar.gz  ./
-cd /data/fe/online/
-tar -zxvf GameServer.tar.gz
-cat gameServer/VERSION
-
-cd /data/fe/online/
-cat gameServer/VERSION
 
 ============
-grant all privileges on *.* to root@"10.163.34.54" identified by "root" with grant option;
-
+grant all privileges on *.* to root@"223.88.37.84" identified by "root" with grant option;
 grant all PRIVILEGES on fe_game_102.* to root@'10.163.34.54'  identified by 'root';
+
 mysql -u root -proot -h 140.143.156.102 -P 3306 -D zombie_game
-
-rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/CenterServer.tar.gz .
-rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GMtools4fe.tar.gz .
-rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/GameServer.tar.gz .
-rsync -vzrtopg --progress -e ssh root@211.159.153.194:/root/en_package/LoginServer.tar.gz .
-
 =================
 ll /proc/---/cwd
 =========================================================
@@ -77,6 +49,8 @@ systemctl enable firewalld.service
 scp /etc/firewalld/zones/public.xml root@xx:/etc/firewalld/zones/
 firewall-cmd --reload //更新规则
 firewall-cmd --list-all //显示当前规则
+
+vim /etc/sysconfig/iptables
 ========================================
 #安装java 
 #安装mysql

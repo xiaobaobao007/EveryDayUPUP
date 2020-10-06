@@ -35,3 +35,4 @@ redefine /tmp/com/combunet/zombie/gs/logic/user/service/ScoreArenaService.class
 jad com.combunet.zombie.gs.logic.user.service.ScoreArenaService
 ===============
 watch  com.combunet.zombie.gs.util.ProtocolUtil parseRequest "{params,returnObj}" -x 2
+ognl '@com.combunet.zombie.gs.logic.user.service.FriendService@me.agreeRequestFriendWithCommit(101000005,(#test=new java.util.ArrayList(), #test.add(1997000004), #test))'
