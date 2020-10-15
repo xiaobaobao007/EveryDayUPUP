@@ -34,7 +34,7 @@ update activityconfig set beginTime=1514736000,endTime=1517414400;
 select concat('drop table ',table_name,';') from information_schema.TABLES where table_schema='charge' into outfile 'D:\data\test.txt';
 
 创角天数
-select account,ceil((1599926400-createTime)/86400) as day  from player where level >20 order by createTime desc limit 40;
+select account,ceil((1602604800-createTime)/86400) as day,from_unixtime(lastLoginTime)  from player where level >20 order by createTime desc limit 40;
 
 玩家信息查询：
 select userId,from_unixtime(lastLoginTime)  from player order by lastLoginTime desc limit 10
