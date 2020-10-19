@@ -49,7 +49,7 @@ where userName="";
 select type,from_unixtime(beginTime),from_unixtime(endTime),showOrder,param from activityconfig;
 
 充值查询：
-select *,from_unixtime(doneTime) from charge where userId= 2024062159 and status =2 order by doneTime desc limit 20
+select *,from_unixtime(createTime) from charge where userId= 499002133 order by doneTime desc limit 20
 select *,from_unixtime(createTime) from charge where chargeId=7009 order by createTime desc limit 20
 select count(*),chargeId from charge where status =2 and createTime>1572537600 and createTime<1575129600 and chargeId between 7201 and 7224 group by chargeId
 
