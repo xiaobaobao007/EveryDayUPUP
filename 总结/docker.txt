@@ -2,3 +2,7 @@
 启动容器并起别名：docker run -itd --name ubuntu-test ubuntu
 启动容器：docker run -it ubuntu /bin/bash
 复制文件到容器内：docker cp  <path to jdk gz file>/jdk-8u121-linux-x64.tar.gz  <容器名称或者ID>:/root
+
+
+创建可被ssh的centos：docker run --privileged -itd --name game centos:centos7 /usr/sbin/init
+运行centos容器：docker exec -it game /bin/bash

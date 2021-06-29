@@ -28,10 +28,10 @@ watch  com.combunet.zombie.gs.logic.user.service.PlayerService loginWithCommit "
 =======
 jad --source-only com.combunet.zombie.gs.logic.user.service.ScoreArenaService > /tmp/ScoreArenaService.java
 vim /tmp/ScoreArenaService.java
-sc -d *ScoreArenaService | grep classLoaderHash
-mc -c 816f27d /tmp/ScoreArenaService.java -d /tmp
+sc -d *LoginService | grep classLoaderHash
+mc -c 70dea4e /data/main/gameserver/java_arthas/LoginService.java -d /tmp
 # 热更新
-redefine /tmp/com/combunet/zombie/gs/logic/user/service/ScoreArenaService.class
+redefine /tmp/com/intion/app/service/LoginService.class
 jad com.combunet.zombie.gs.logic.user.service.ScoreArenaService
 ===============
 watch  com.combunet.zombie.gs.util.ProtocolUtil parseRequest "{params,returnObj}" -x 2
