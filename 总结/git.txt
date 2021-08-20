@@ -2,3 +2,5 @@ git add .				添加版本控制（用gui）
 git commit -m “the commit message"	提交（用gui）
 git rm -r --cached ./*/.mvn/*          	取消版本控制
 git credential-manager uninstall	删除本地授权
+git config --global user.name "xxx"
+git config --global user.email "xxx@xxx.com"

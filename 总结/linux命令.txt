@@ -68,16 +68,14 @@ mysqladmin password 'ranshao'
 grant all privileges on *.* to 'root'@'%' identified by 'ranshao' with grant option;
 flush privileges;
 
-
-scp root@172.26.64.182:~/*.gz .
-scp root@172.26.64.182:~/*.rpm .
-ll
+安装jdk
 tar -zxf jdk-8u191-linux-x64.tar.gz
 vim /etc/profile
-ll
 mv jdk1.8.0_191/ /usr/local/
 source /etc/profile
 java -version
+
+安装mysql
 yum -y install yum-utils
 rpm -Uvh mysql80-community-release-el6-n.noarch.rpm
 rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
@@ -91,16 +89,14 @@ systemctl start mysqld.service
 mysqladmin password 'ranshao'
 mysql -p
 scp root@172.26.64.182:/data/service/redis-3.2.8.tar.gz .
-ll
+
+安装redis
 tar -zxf redis-3.2.8.tar.gz
 cd redis-3.2.8
-ll
 make && make install
 yum -y install gcc
 make && make install
 exit
-ll
-history
 
 
 
