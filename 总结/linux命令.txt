@@ -52,7 +52,6 @@ firewall-cmd --list-all //显示当前规则
 
 vim /etc/sysconfig/iptables
 ========================================
-#安装java 
 #安装mysql
 yum -y install yum-utils
 rpm -Uvh mysql80-community-release-el6-n.noarch.rpm
@@ -71,6 +70,8 @@ flush privileges;
 安装jdk
 tar -zxf jdk-8u191-linux-x64.tar.gz
 vim /etc/profile
+export JAVA_HOME=/usr/local/jdk1.8.0_131
+export PATH=$PATH:$JAVA_HOME/bin
 mv jdk1.8.0_191/ /usr/local/
 source /etc/profile
 java -version
@@ -97,9 +98,3 @@ make && make install
 yum -y install gcc
 make && make install
 exit
-
-
-
-
-
-
